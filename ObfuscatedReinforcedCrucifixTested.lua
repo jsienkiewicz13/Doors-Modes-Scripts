@@ -1,6 +1,6 @@
 --[ Made By NEVEREND ]--
 --[ This Crucifix Does Nothing For Now ]--
---[ More Functionality Later ] (Tested)--
+--[ More Functionality Later ] (Partially Tested)--
 do
 	local v0 = tonumber;
 	local v1 = string.byte;
