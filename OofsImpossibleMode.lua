@@ -1,1 +1,1 @@
-loadstring(game:HttpGet("https://pastebin.com/raw/CKBP3r47"))()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Ukazix/impossible-mode/main/Protected_79.lua.txt'))()
