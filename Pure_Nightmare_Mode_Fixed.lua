@@ -4,9 +4,12 @@
 
 local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
 local CurrRoom = game.ReplicatedStorage.GameData.LatestRoom
-function msg(Message, Lifetime)
+function msg(Message, Lifetime, NoDelay)
+    local noDel = NoDelay or true
     require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(Message,true,Lifetime)
-    wait(Lifetime)
+    if not noDel then
+        wait(Lifetime)
+    end
 end
 
 local entityTable = Spawner.createEntity({
@@ -400,12 +403,12 @@ local function Spawn(Entity)
     end
     if Entity == "Blood" then
         Spawner.runEntity(entityTable8)
-        msg("What the..?", 5)
+        msg("What the..?", 5, false)
     end
 end
 
-msg("Welcome to Hell, Feel Welcomed", 10)
-msg("If you see this then Pure Nightmare Mode is On!", 5)
+msg("Welcome to Hell, Feel Welcomed", 10, false)
+msg("If you see this then Pure Nightmare Mode is On!", 5, false)
 
 while not CurrRoom.Value == 98 or CurrRoom.Value == 99 or CurrRoom.Value == 100 do
     wait(math.random(15, 30))
