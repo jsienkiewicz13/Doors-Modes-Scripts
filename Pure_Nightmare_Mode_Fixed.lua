@@ -4,6 +4,11 @@
 
 local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
 local CurrentRoom = game.ReplicatedStorage.GameData.LatestRoom
+function msg(Message, Lifetime)
+    require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(Message,true,Lifetime)
+    wait(Lifetime)
+end
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
 
 local entityTable = Spawner.createEntity({
     CustomName = "Reknown", -- Custom name of your entity
@@ -319,6 +324,58 @@ local entityTable7 = Spawner.createEntity({
     },
     CustomDialog = {"I.. Dont... Know... Who you died... To?", "Umm... Maybe... Hide?", "(What Did you even Die To?)"}, -- Custom death message
 })
+local entityTable8 = Spawner.createEntity({
+    CustomName = "B100D", -- Custom name of your entity
+    Model = "rbxassetid://13300775194", -- Can be GitHub file or rbxassetid
+    Speed = 500, -- Percentage, 100 = default Rush speed
+    DelayTime = 23.0933333333, -- Time before starting cycles (seconds)
+    HeightOffset = 0,
+    CanKill = true,
+    KillRange = 100,
+    BackwardsMovement = false,
+    BreakLights = true,
+    FlickerLights = {
+        true, -- Enabled/Disabled
+        10, -- Time (seconds)
+
+    },
+    Cycles = {
+        Min = 6,
+        Max = 12,
+        WaitTime = 1,
+    },
+    CamShake = {
+        true, -- Enabled/Disabled
+        {3.5, 20, 0.1, 1}, -- Shake values (don't change if you don't know)
+        500, -- Shake start distance (from Entity to you)
+    },
+    Jumpscare = {
+        false, -- Enabled/Disabled
+        {
+            Image1 = "rbxassetid://6558188119", -- Image1 url
+            Image2 = "rbxassetid://6558188119", -- Image2 url
+            Shake = true,
+            Sound1 = {
+                0000000000, -- SoundId
+                { Volume = 1 }, -- Sound properties
+            },
+            Sound2 = {
+                00000000000, -- SoundId
+                { Volume = 2 }, -- Sound properties
+            },
+            Flashing = {
+                true, -- Enabled/Disabled
+                Color3.fromRGB(0, 255, 0), -- Color
+            },
+            Tease = {
+                true, -- Enabled/Disabled
+                Min = 1,
+                Max = 3,
+            },
+        },
+    },
+    CustomDialog = {"You died to who the owner calls 'Blood'", "Use The Same Tactics As Reknown", "Don't Hide Right Away When He's Screaming!"}, -- Custom death message
+})
 
 local entityNames = {"Reknown", "Zelayixtier", "Refusal", "Z-12", "Plant", "Virus"}
 
@@ -335,16 +392,17 @@ local function Spawn(Entity)
     if Entity == "Z-12" then
         Spawner.runEntity(entityTable4)
     end
+    --- ERROR: ENTITYTABLE5NOTFOUND ---
     if Entity == "Plant" then
         Spawner.runEntity(entityTable6)
     end
     if Entity == "Virus" then
         Spawner.runEntity(entityTable7)
     end
-end
-
-function msg(Message, Lifetime)
-    require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(Message,true,Lifetime)
+    if Entity == "Blood" then
+        Spawner.runEntity(entityTable8)
+        msg("What the..?", 5)
+    end
 end
 
 msg("Welcome to Hell, Feel Welcomed", 10)
