@@ -3,7 +3,7 @@
 ---[ Feel Free To Use ]---
 
 local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
-local CurrentRoom = game.ReplicatedStorage.GameData.LatestRoom
+local CurrRoom = game.ReplicatedStorage.GameData.LatestRoom
 function msg(Message, Lifetime)
     require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(Message,true,Lifetime)
     wait(Lifetime)
@@ -376,7 +376,7 @@ local entityTable8 = Spawner.createEntity({
     CustomDialog = {"You died to who the owner calls 'Blood'", "Use The Same Tactics As Reknown", "Don't Hide Right Away When He's Screaming!"}, -- Custom death message
 })
 
-local entityNames = {"Reknown", "Zelayixtier", "Refusal", "Z-12", "Plant", "Virus"}
+local entityNames = {"Reknown", "Zelayixtier", "Refusal", "Z-12", "Plant", "Virus", "Blood"}
 
 local function Spawn(Entity)
     if Entity == "Reknown" then
@@ -407,9 +407,9 @@ end
 msg("Welcome to Hell, Feel Welcomed", 10)
 msg("If you see this then Pure Nightmare Mode is On!", 5)
 
-while not CurrentRoom.Value == 98 or CurrentRoom.Value == 99 or CurrentRoom.Value == 100 do
+while not CurrRoom.Value == 98 or CurrRoom.Value == 99 or CurrRoom.Value == 100 do
     wait(math.random(15, 30))
-    CurrentRoom.Changed:Wait()
+    CurrRoom.Changed:Wait()
     local entityIndex = math.random(#entityNames)
     local entityName = entityNames[entityIndex]
     Spawn(entityName)
