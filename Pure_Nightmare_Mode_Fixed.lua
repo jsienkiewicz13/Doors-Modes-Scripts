@@ -1,3 +1,7 @@
+---[ Made By Duper NO! ]---
+---[ Spawner By RegularVynixus ]---
+---[ Feel Free To Use ]---
+
 local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
 local CurrentRoom = game.ReplicatedStorage.GameData.LatestRoom
 
