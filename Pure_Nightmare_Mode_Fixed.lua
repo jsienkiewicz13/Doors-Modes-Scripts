@@ -8,7 +8,6 @@ function msg(Message, Lifetime)
     require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(Message,true,Lifetime)
     wait(Lifetime)
 end
-local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
 
 local entityTable = Spawner.createEntity({
     CustomName = "Reknown", -- Custom name of your entity
@@ -408,7 +407,7 @@ end
 msg("Welcome to Hell, Feel Welcomed", 10)
 msg("If you see this then Pure Nightmare Mode is On!", 5)
 
-while not CurrentRoom.Value = 98 or CurrentRoom.Value = 99 or CurrentRoom.Value = 100 do
+while not CurrentRoom.Value == 98 or CurrentRoom.Value == 99 or CurrentRoom.Value == 100 do
     wait(math.random(15, 30))
     CurrentRoom.Changed:Wait()
     local entityIndex = math.random(#entityNames)
